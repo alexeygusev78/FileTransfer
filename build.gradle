@@ -1,9 +1,10 @@
 // FileTransfer
 // Alexey Gusev - 20191120
-// 
+// automatically builds fat jar
+// for build use: gradle build
+//
 
 apply plugin: 'java'
-apply plugin: 'eu.appsatori.fatjar'
 
 group = 'ru.ag78.utils.ft'
 version = '1.0.0'
@@ -11,17 +12,7 @@ String title = 'FileTransfer utility'
 
 repositories {
     mavenLocal();
-	jcenter();
-}
-
-buildscript {
-    repositories {
-		mavenLocal();
-		jcenter();
-    }
-    dependencies {
-        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
-    }
+	mavenCentral()
 }
 
 jar {
@@ -30,16 +21,19 @@ jar {
         'Title': "$title",
 		'Main-Class': 'ru.ag78.utils.ft.FileTransfer',
         'Created-By': 'Gradle ' + project.gradle.gradleVersion)
+	from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
-fatJar {
+/*fatJar {
     manifest.attributes(
         'Version': version, 
         'Title': "$title",
 		'Main-Class': 'ru.ag78.utils.ft.FileTransfer',
         'Created-By': 'Gradle ' + project.gradle.gradleVersion)
 	archiveName("ft.$jar.extension")
-}
+}*/
 
 dependencies {
 	compile group: 'log4j', name: 'log4j', version: '1.2.17'
