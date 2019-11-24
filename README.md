@@ -27,6 +27,11 @@ AG
 java -jar ft.jar -send -file <filename> -address host:port
 ```
 
+## Sending MP4 Linux Example
+```
+for i in *.MP4; do java -jar ~/bin/ft/ft.jar -send -address 192.168.0.105:9000 -file "$i"; done
+```
+
 ## For receive files use
 In this mode ft starts in accept mode & ready to receive files.
 Use Ctrl + C to abort receiving files.
