@@ -3,7 +3,7 @@ netcat-like utility for transfer files via tcp/ip connection
 
 ## For build use
 ```
-gradle fatJar
+gradle build
 ```
 
 ## For get help use

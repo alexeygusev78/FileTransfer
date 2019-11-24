@@ -21,6 +21,7 @@ jar {
         'Title': "$title",
 		'Main-Class': 'ru.ag78.utils.ft.FileTransfer',
         'Created-By': 'Gradle ' + project.gradle.gradleVersion)
+	archiveName("ft.$jar.extension")
 	from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
