@@ -1,6 +1,11 @@
 # FileTransfer
 netcat-like utility for transfer files via tcp/ip connection
 
+## For build use
+```
+gradle fatJar
+```
+
 ## For get help use
 ```
 java -jar ft.jar -h
@@ -18,13 +23,13 @@ AG
 ```
 
 ## For send file use
-```aidl
+```
 java -jar ft.jar -send -file <filename> -address host:port
 ```
 
 ## For receive files use
 In this mode ft starts in accept mode & ready to receive files.
 Use Ctrl + C to abort receiving files.
-```aidl
+```
 java -jar ft.jar -receive -address :9000
 ```
